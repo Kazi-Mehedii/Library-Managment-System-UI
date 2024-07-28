@@ -3,20 +3,27 @@ import { CommonModule } from '@angular/common';
 import { MaterialModule } from '../material/material.module';
 import { PageheaderComponent } from '../../components/shared/pageheader/pageheader.component';
 import { PagefooterComponent } from '../../components/shared/pagefooter/pagefooter.component';
+import { PagesidenavComponent } from '../../components/shared/pagesidenav/pagesidenav.component';
+import { RouterLink, RouterModule } from '@angular/router';
+import { PagenotfoundComponent } from '../../components/shared/pagenotfound/pagenotfound.component';
 
 
 
 @NgModule({
-  declarations: [PageheaderComponent,PagefooterComponent],
+  declarations: [PageheaderComponent,PagefooterComponent,PagesidenavComponent,PagenotfoundComponent],
   imports: [
     CommonModule,
     MaterialModule,
+    RouterModule
   ],
   exports:[
     CommonModule,
     MaterialModule,
     PageheaderComponent,
-    PagefooterComponent
+    PagefooterComponent,
+    PagesidenavComponent,
+    RouterModule,
+    PagenotfoundComponent
   ]
 })
 export class SharedModule { }

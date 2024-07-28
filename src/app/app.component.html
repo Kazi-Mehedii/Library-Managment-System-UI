@@ -2,13 +2,13 @@
 <mat-sidenav-container>
 
 <mat-sidenav opened mode="side">
-   <span>Item</span>
+  <pagesidenav></pagesidenav>
 </mat-sidenav>
 
 <mat-sidenav-content>
     <pageheader></pageheader>
 <main>
-    <h1> Main Content</h1>
+    <router-outlet></router-outlet>
 </main>
 <pagefooter></pagefooter>
 </mat-sidenav-content>

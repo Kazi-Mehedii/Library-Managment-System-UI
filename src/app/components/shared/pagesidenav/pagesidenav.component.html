@@ -5,5 +5,8 @@
 </mat-card>
 
 <mat-nav-list>
-    <a mat-list-item routerLink="/temp" routerLinkActive="active-link">Item 1</a>
+
+    @for(item of navItem; track navItem){
+        <a mat-list-item routerLink="{{item.link}}" routerLinkActive="active-link">{{item.value}}</a>
+    } 
 </mat-nav-list>

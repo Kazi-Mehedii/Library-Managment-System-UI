@@ -25,13 +25,16 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
-
+import { MatList } from '@angular/material/list';
+import { MatListItem } from '@angular/material/list';
 
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule
+    CommonModule,
+    MatList,
+    MatListItem
   ],
   exports:[ 
     MatButtonModule,
@@ -58,6 +61,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatProgressSpinnerModule,
     MatTooltipModule,
     MatSnackBarModule,
-    MatTabsModule]
+    MatTabsModule,
+    MatList,
+    MatListItem]
 })
 export class MaterialModule { }

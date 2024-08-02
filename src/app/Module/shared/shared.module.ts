@@ -7,6 +7,7 @@ import { PagesidenavComponent } from '../../components/shared/pagesidenav/pagesi
 import { RouterLink, RouterModule } from '@angular/router';
 import { PagenotfoundComponent } from '../../components/shared/pagenotfound/pagenotfound.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     MaterialModule,
     RouterModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports:[
     CommonModule,
@@ -25,7 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     PagesidenavComponent,
     RouterModule,
     PagenotfoundComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class SharedModule { }

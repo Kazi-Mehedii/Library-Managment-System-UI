@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +14,15 @@ export class APIService {
    return this.http.post(this.baseUrl_auth + 'Register', user,{
       responseType: 'text',
     })
+  }
+
+  login(logins: any){
+      let params = new HttpParams()
+      .append('email',logins.email).append('password',logins.password);
+
+      return this.http.get(this.baseUrl_auth+'Login',{
+        params:params,
+        responseType:'text'
+      });
   }
 }

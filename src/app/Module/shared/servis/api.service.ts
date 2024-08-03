@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Subject } from 'rxjs';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +9,12 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 export class APIService {
 
   baseUrl_auth: string = "https://localhost:7134/api/Auth/";
-  constructor(private http:HttpClient) { }
+
+  //for navigate the side nave property
+  userStatus: Subject<string> = new Subject();
+
+
+  constructor(private http:HttpClient, private jwt: JwtHelperService) { }
 
 
   register(user: any){
@@ -24,5 +31,11 @@ export class APIService {
         params:params,
         responseType:'text'
       });
+  }
+
+  isLoggedIn(): boolean{
+    if ( localStorage.getItem('access_token') != null ^^ this) {
+      
+    }
   }
 }

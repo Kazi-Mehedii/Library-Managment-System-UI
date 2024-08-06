@@ -16,7 +16,7 @@ export class LoginComponent {
         this.loginForm = fb.group({
           email: fb.control('',[Validators.required]),
           password: fb.control('',[Validators.required])
-        })
+        });
     }
 
     login(){
@@ -26,7 +26,7 @@ export class LoginComponent {
       };
       this.apiService.login(loginfo).subscribe({
         next:(res) => {
-          if (res  == "Not found") {
+          if (res  == "not found") {
             this.snackBar.open('Credential is Not Valid', 'Ok');
           }
           else if(res == "Not approved"){
@@ -34,6 +34,7 @@ export class LoginComponent {
           }
           else{
             localStorage.setItem('access_token', res);
+            this.apiService.userStatus.next("loggedIn")
           }
         }
 

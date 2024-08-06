@@ -7,13 +7,15 @@
     <span class="spacer"></span>
 
     <div class="user-info">
+       @if (loggedIn) {
         <div class="name">
-            Hi Mehedi
+            Hi, {{name}}
         </div>
+       }
         <button mat-raised-button color="accent">
             Account
         </button>
-        <button mat-raised-button color="warn">
+        <button mat-raised-button color="warn" (click)="logout()">
             Logout
         </button>
     </div>

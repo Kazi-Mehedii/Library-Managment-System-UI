@@ -10,6 +10,8 @@ export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes),
      provideAnimationsAsync(),
      provideHttpClient(),
+     
+     //for jwt encoder and decoder
      importProvidersFrom(
       JwtModule.forRoot({
         config:{

@@ -25,7 +25,7 @@ export class PageheaderComponent {
           this.name = '';
         }
       }
-    })
+    });
   }
 
   

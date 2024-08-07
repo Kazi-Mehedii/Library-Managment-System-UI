@@ -3,12 +3,20 @@ import { RouterOutlet } from '@angular/router';
 import { SharedModule } from './Module/shared/shared.module';
 import { AuthModule } from './Module/auth/auth.module';
 import { APIService } from './Module/shared/servis/api.service';
+import { UsersModule } from './users/users.module';
+import { BooksModule } from './books/books.module';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,SharedModule,AuthModule],
+  imports: [
+    RouterOutlet,
+    SharedModule,
+    AuthModule,
+    UsersModule,
+    BooksModule
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

@@ -26,8 +26,8 @@ export enum AccountStatus {
 
 export interface BookCategory{
     id: number;
-    catagory: string;
-    subcatagory: string;
+    category: string;
+    subCategory: string;
 }
 
 export interface Book{
@@ -47,4 +47,14 @@ export interface BookByCategory{
     category:string;
     subCategory:string;
     books: Book[];
+}
+
+export interface Order {
+    id: number;
+    userId: number;
+    bookId: number;
+    orderDate: string;
+    returned: boolean;
+    returnDate: string;
+    finePaid: number;
 }

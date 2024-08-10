@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Subject } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { User, UserType, AccountStatus } from '../../../model/models';
+import { User, UserType, AccountStatus, Book } from '../../../model/models';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,7 @@ export class APIService {
   }
 
   baseUrl_auth: string = "https://localhost:7134/api/Auth/";
+  baseUrl_book: string = "https://localhost:7134/api/Book/"
 
   //for navigate the side nave property
   userStatus: Subject<string> = new Subject();
@@ -66,4 +67,22 @@ export class APIService {
     this.userStatus.next("loggedOff");
 
 }
+
+
+getBooks(){
+  return this.http.get<Book[]>(this.baseUrl_book + 'GetBooks')
+}
+
+
+orderBook(book: Book){
+  let userId = this.getUserInfo()!.id
+  let params = new HttpParams().append('userId', userId).append('bookId', book.id)
+  return this.http.post(this.baseUrl_book+"OrderBook",null,{
+    params:params,
+    responseType:'text'
+  })
+}
+
+
+
 }

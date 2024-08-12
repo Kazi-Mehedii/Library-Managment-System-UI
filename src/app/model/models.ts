@@ -52,7 +52,9 @@ export interface BookByCategory{
 export interface Order {
     id: number;
     userId: number;
+    userName: string;
     bookId: number;
+    bookTitle: string;
     orderDate: string;
     returned: boolean;
     returnDate: string;

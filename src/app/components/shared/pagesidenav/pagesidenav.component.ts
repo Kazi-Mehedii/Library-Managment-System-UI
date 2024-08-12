@@ -32,7 +32,7 @@ export class PagesidenavComponent {
     apiService.userStatus.subscribe({
       next: (status) =>{
         if(status == 'loggedIn'){
-          router.navigateByUrl('/my-orders');
+          router.navigateByUrl('/profile');
           // console.log(APIService.getUserInfo());
           let user = apiService.getUserInfo();
           if (user != null) {

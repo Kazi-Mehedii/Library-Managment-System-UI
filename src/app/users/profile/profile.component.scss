@@ -1,0 +1,27 @@
+mat-card{
+    margin-top: 1rem;
+    width: 600px;
+    margin-left: 20%;
+
+    mat-card-title{
+
+        font-weight: 600;
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+        color: forestgreen;
+    }
+    mat-card-content{
+        table{
+            margin-top: 2rem;
+
+            .mat-column-name{
+                border-right: 1px solid red;
+            }
+            .mat-mdc-header-cell,
+            .mat-mdc-cell{
+                font-size: 1.3rem;
+            }
+        }
+
+    }
+}

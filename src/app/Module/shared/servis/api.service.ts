@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { map, Subject } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
-import { User, UserType, AccountStatus, Book, Order } from '../../../model/models';
+import { User, UserType, AccountStatus, Book, Order, BookCategory } from '../../../model/models';
 
 @Injectable({
   providedIn: 'root'
@@ -123,4 +123,9 @@ export class APIService {
     return 0;
   }
 
+  addNewCategory(category:BookCategory){
+    return this.http.post(this.baseUrl_book + 'AddCategory', category,{
+      responseType:'text'
+    });
+  }
 }

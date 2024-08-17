@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { APIService } from '../../../Module/shared/servis/api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { User } from '../../../model/models';
 
 @Component({
   selector: 'register',
@@ -40,6 +41,7 @@ export class RegisterComponent {
       this.snackBar.open(res, 'Ok')
     }
    })
+   this.registerForm.reset();
   }
 
 }

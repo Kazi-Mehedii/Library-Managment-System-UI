@@ -8,10 +8,11 @@ import { RouterLink, RouterModule } from '@angular/router';
 import { PagenotfoundComponent } from '../../components/shared/pagenotfound/pagenotfound.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PageTableComponent } from '../../components/shared/page-table/page-table.component';
 
 
 @NgModule({
-  declarations: [PageheaderComponent,PagefooterComponent,PagesidenavComponent,PagenotfoundComponent],
+  declarations: [PageheaderComponent,PagefooterComponent,PagesidenavComponent,PagenotfoundComponent,PageTableComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -28,7 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,
     PagenotfoundComponent,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    PageTableComponent
   ]
 })
 export class SharedModule { }

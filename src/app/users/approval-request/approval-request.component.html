@@ -1,0 +1,11 @@
+<mat-card>
+    <mat-card-content>
+        <h1>
+            Pending for approval Riquest {{users.length}}
+        </h1>
+    </mat-card-content>
+</mat-card>
+
+<page-table [columns]="columns" [datasource]="users" (approve)="approve($event)">
+    
+</page-table>

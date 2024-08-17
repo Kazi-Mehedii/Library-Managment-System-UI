@@ -78,7 +78,7 @@ export class APIService {
   orderBook(book: Book) {
     let userId = this.getUserInfo()!.id
     let params = new HttpParams().append('userId', userId).append('bookId', book.id)
-    return this.http.post(this.baseUrl_book + "OrderBook", null, {
+    return this.http.post(this.baseUrl_Order + "OrderBook", null, {
       params: params,
       responseType: 'text'
     })
@@ -137,5 +137,33 @@ export class APIService {
     return this.http.post(this.baseUrl_book + 'AddNewBook', book,{
       responseType: 'text'
     })
+  }
+
+  deleteBook(id: number){
+    return this.http.delete(this.baseUrl_book + 'DeleteBook',{
+      params: new HttpParams().append('id', id),
+      responseType: 'text'
+    })
+  }
+
+  returnBook(userId: string, bookId:string, fine: number){
+    return this.http.get(this.baseUrl_Order + 'ReturnBook', {
+      params: new HttpParams()
+      .append('userId',userId)
+      .append('bookId',bookId)
+      .append('fine',fine),
+      responseType: 'text'
+    });
+  }
+
+  getUsers(){
+    return this.http.get<User[]>(this.baseUrl_auth + 'GetUsers')
+  }
+
+  aprooveRequest(userId: number){
+    return this.http.get(this.baseUrl_auth + 'ApproveRequest', {
+      params: new HttpParams().append('userId', userId),
+      responseType:'text'
+    });
   }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Book, BookCategory } from '../../model/models';
 import { APIService } from '../../Module/shared/servis/api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -20,6 +20,7 @@ export class MaintenanceComponent {
     newCategory: FormGroup;
     newBook: FormGroup;
     categoryOption: CategoryOption[] = [];
+    deleteBook: FormControl;
 
     constructor(
       fb: FormBuilder,
@@ -51,7 +52,9 @@ export class MaintenanceComponent {
             });
           });
         },
-      })
+      });
+
+      this.deleteBook = fb.control('',[Validators.required])
 
     }
 
@@ -94,4 +97,23 @@ export class MaintenanceComponent {
       })
       this.newBook.reset();
     }
+
+
+    deleteExistBook(){
+      let id = this.deleteBook.value;
+      this.apiService.deleteBook(id).subscribe({
+        next: (res) => {
+          if (res === 'deleted') {
+            this.snackBar.open('Book Successfully Deleted!', 'Ok')
+          }
+           
+          
+        },
+        error: (err) => this.snackBar.open('Book not Exist', 'Ok')
+      })
+
+      this.deleteBook.reset();
+    }
+
+
 }

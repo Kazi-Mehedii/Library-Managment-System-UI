@@ -4,12 +4,13 @@ import { SharedModule } from '../Module/shared/shared.module';
 import { BookStoreComponent } from './book-store/book-store.component';
 import { MaintenanceComponent } from './maintenance/maintenance.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ReturnBooksComponent } from './return-books/return-books.component';
 
 
 
 
 @NgModule({
-  declarations: [BookStoreComponent,MaintenanceComponent],
+  declarations: [BookStoreComponent,MaintenanceComponent,ReturnBooksComponent],
   imports: [
     SharedModule,
     CommonModule,

@@ -8,6 +8,8 @@ import { ProfileComponent } from './users/profile/profile.component';
 import { MaintenanceComponent } from './books/maintenance/maintenance.component';
 import { ReturnBooksComponent } from './books/return-books/return-books.component';
 import { ApprovalRequestComponent } from './users/approval-request/approval-request.component';
+import { AllOrdersComponent } from './users/all-orders/all-orders.component';
+import { AllUsersComponent } from './users/all-users/all-users.component';
 
 
 export const routes: Routes = [
@@ -18,6 +20,8 @@ export const routes: Routes = [
     {path:'maintenance',component:MaintenanceComponent},
     {path: 'return-book',component:ReturnBooksComponent},
     {path: 'aprooval-request',component:ApprovalRequestComponent},
+    {path:'all-users', component: AllUsersComponent},
+    {path: 'all-orders',component: AllOrdersComponent},
     {path:'profile', component:ProfileComponent},
     {path:"**", component:PagenotfoundComponent}
 ];

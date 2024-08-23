@@ -28,7 +28,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatList } from '@angular/material/list';
 import { MatListItem } from '@angular/material/list';
 import { MatExpansionModule } from '@angular/material/expansion';
-
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 @NgModule({
@@ -66,7 +66,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatTabsModule,
     MatList,
     MatListItem,
-    MatExpansionModule
+    MatExpansionModule,
+    MatProgressBarModule
   ]
 })
 export class MaterialModule { }

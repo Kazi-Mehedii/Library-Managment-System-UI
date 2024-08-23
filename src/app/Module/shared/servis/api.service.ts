@@ -52,7 +52,7 @@ export class APIService {
       firstName: decodedToken.firstName,
       lastName: decodedToken.lastName,
       email: decodedToken.email,
-      mobile: decodedToken.mobile,
+      mobileNumber: decodedToken.mobileNumber,
       userType: UserType[decodedToken.userType as keyof typeof UserType],
       // userType: decodedToken.UserType,
       accountStatus: decodedToken.accountStatus,
@@ -62,6 +62,7 @@ export class APIService {
     };
     return user;
   }
+  
   //for logout
   logout() {
     localStorage.removeItem("access_token");
@@ -166,4 +167,48 @@ export class APIService {
       responseType:'text'
     });
   }
+
+  getOrders(){
+    return this.http.get <any> (this.baseUrl_Order + 'GetOrders').pipe(
+      map((order) => {
+        let newOrders = order.map((order: any) => {
+          let newOrder: Order = {
+            id: order.id,
+            userId: order.userId,
+            userName: order.user.firstName + ' ' + order.user.lastName,
+            bookId: order.bookId,
+            bookTitle: order.book.title,
+            orderDate: order.orderDate,
+            returned: order.returned,
+            returnDate: order.returnDate,
+            finePaid: order.finePaid
+          }
+          return newOrder;
+        }
+      )
+       return newOrders;
+      }
+    )
+    )
+  }
+
+  sendEmail(){
+    return this.http.get(this.baseUrl_auth + 'SendEamilForPendingReturn', {
+      responseType:'text'
+    });
+  }
+
+  blockUser(){
+    return this.http.get(this.baseUrl_auth + 'BlockForFineOverDue',{
+      responseType:'text'
+    });
+  }
+
+  unblock(userId: number){
+    return this.http.get(this.baseUrl_auth + 'UnblockUser', {
+      params: new HttpParams().append('userId', userId),
+      responseType: 'text'
+    })
+  }
+  
 }

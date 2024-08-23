@@ -43,6 +43,7 @@ export class PagesidenavComponent {
                 {value:'Maintenance',link:'/maintenance'},
                 {value: 'Return Books', link:'/return-book'},
                 {value: 'Aprooval Request', link:'/aprooval-request'},
+                {value:'All Users',link:'/all-users'},
                 {value: 'All Orders', link:'/all-orders'},
                 {value: 'My Order', link:'/mu-orders'},
               ];

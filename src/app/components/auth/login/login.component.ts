@@ -32,6 +32,10 @@ export class LoginComponent {
           else if(res == "Not approved"){
             this.snackBar.open("Your Account is Not Aproved By ADmin")
           }
+
+          else if (res == 'blocked') {
+            this.snackBar.open("Your Account is blocked! please go to admin office and unblocked you account.", 'Ok')
+          }
           else{
             localStorage.setItem('access_token', res);
             this.apiService.userStatus.next("loggedIn")

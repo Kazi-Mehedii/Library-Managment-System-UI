@@ -21,7 +21,7 @@ export class ProfileComponent {
     this.dataSource = [
       {name: "Name", value: user.firstName + " " + user.lastName},
       {name: "Email", value: user.email},
-      {name: "Mobile", value: user.mobile},
+      {name: "Mobile", value: user.mobileNumber},
       {name: "Account Status", value: `${user.accountStatus}`},
       {name: "Creation Date", value: user.createdOn},
       {name: "Type", value: `${user.userType}`},

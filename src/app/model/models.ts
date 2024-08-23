@@ -3,7 +3,7 @@ export interface User {
     firstName: string;
     lastName: string;
     email: string;
-    mobile: string;
+    mobileNumber: string;
     password: string;
     userType: UserType;
     accountStatus: AccountStatus;
@@ -21,7 +21,7 @@ export enum AccountStatus {
     
     UNAPROOVED,
     ACTIVE,
-    BLOEKED
+    BLOCKED
 }
 
 export interface BookCategory{

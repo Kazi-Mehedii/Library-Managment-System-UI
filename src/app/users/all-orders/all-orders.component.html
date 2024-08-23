@@ -1,0 +1,33 @@
+<mat-card>
+    <mat-card-content>
+        <h1>Orders With pending Return ({{ordersWithPendingReturns.length}})</h1>
+
+        <button mat-raised-button color="accent" (click)="sendEmail()" [disabled]="ordersWithPendingReturns.length === 0">
+            Send Email for Pending Returns 
+        </button>
+
+        <button mat-raised-button color="accent" [disabled]="ordersWithCompletedReturns.length === 0" (click)="blockUser()">
+            Block User For OverDue
+        </button>
+    </mat-card-content>
+
+    <mat-card-footer>
+        @if (showProgressBar) {
+            <mat-progress-bar mode="indeterminate" color="accent">
+            </mat-progress-bar>
+        }
+    </mat-card-footer>
+</mat-card>
+
+<page-table [columns]="columnsForPendingReturns" [datasource]="ordersWithPendingReturns">
+</page-table>
+
+<mat-card>
+    <mat-card-content>
+        <h1>Orders With Completed Returns ({{ordersWithCompletedReturns.length}})</h1>
+    </mat-card-content>
+</mat-card>
+
+<page-table [columns]="columnsForCompletedReturns"
+            [datasource]="ordersWithCompletedReturns">
+</page-table>
